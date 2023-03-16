@@ -1,14 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>个人博客</title>
+    <style>
+      *,
+      ::after,
+      ::before {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        width: 100%;
+        height: 100%;
+        min-height: 100vh;
+        line-height: 1.5;
+        vertical-align: baseline;
+        word-wrap: break-word;
+        color: #282a2d;
+        font-size: 12px;
+        font-weight: 400;
+        color: #212529;
+        text-align: left;
+        background-color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: linear-gradient(to bottom, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);
+      }
+      .text-container {
+        font-size: 24px;
+        font-weight: bold;
+        height: 300px;
+        color: aliceblue;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+      .main-info {
+        font-size: 16px;
+        margin-top: 4px;
+      }
+      .background-fx {
+        position: absolute;
+        left: 60px;
+        right: 0;
+        height: 100vh;
+        top: 0;
+        overflow: hidden;
+        opacity: 1;
+        z-index: -1;
+      }
+      .background-fx img {
+        max-width: 100%;
+        height: auto;
+        vertical-align: middle;
+        border-style: none;
+      }
+      .shape-01 {
+        position: absolute;
+        top: 11%;
+        right: 42%;
+        -webkit-animation: animationFramesTwo 13s linear infinite;
+        animation: animationFramesTwo 13s linear infinite;
+      }
+      .shape-02 {
+        position: absolute;
+        top: 27%;
+        left: 17%;
+        -webkit-animation: animationFramesFour 25s linear infinite alternate;
+        animation: animationFramesFour 25s linear infinite alternate;
+      }
+      .shape-03 {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        -webkit-animation: animationFramesThree 35s linear infinite alternate;
+        animation: animationFramesThree 35s linear infinite alternate;
+      }
+      .shape-04 {
+        position: absolute;
+        top: 40%;
+        right: 23%;
+        -webkit-animation: animationFramesTwo 20s linear infinite alternate;
+        animation: animationFramesTwo 20s linear infinite alternate;
+      }
+      .shape-05 {
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        bottom: 62%;
+        right: 28%;
+        -webkit-animation: animationFramesOne 15s linear infinite;
+        animation: animationFramesOne 15s linear infinite;
+      }
+      .shape-06 {
+        position: absolute;
+        bottom: 73%;
+        left: 38%;
+        -webkit-animation: animationFramesTwo 20s linear infinite alternate;
+        animation: animationFrameTwo 20s linear infinite alternate;
+      }
+      .shape-07 {
+        position: absolute;
+        left: 14%;
+        bottom: 54%;
+        -webkit-animation: animationFramesOne 17s linear infinite;
+        animation: animationFramesOne 17s linear infinite;
+      }
+      .shape-08 {
+        position: absolute;
+        left: 14%;
+        top: 60%;
+        -webkit-animation: animationFramesOne 20s linear infinite alternate;
+        animation: animationFramesOne 20s linear infinite alternate;
+      }
+      .shape-09 {
+        position: absolute;
+        top: 22%;
+        left: 41%;
+        -webkit-animation: animationFramesOne 15s linear infinite;
+        animation: animationFramesOne 15s linear infinite;
+      }
+      .shape-10 {
+        position: absolute;
+        top: 8%;
+        right: 25%;
+        -webkit-animation: animationFramesOne 15s linear infinite;
+        animation: animationFramesOne 15s linear infinite;
+      }
+      .shape-11 {
+        position: absolute;
+        top: 10%;
+        right: 8%;
+        -webkit-animation: animationFramesOne 12s linear infinite;
+        animation: animationFramesOne 12s linear infinite;
+      }
+      @keyframes animationFramesFour {
+        0% {
+          transform: translate(0) rotate(0deg) scale(1);
+        }
+        20% {
+          transform: translate(73px, -1px) rotate(36deg) scale(0.9);
+        }
+        40% {
+          transform: translate(141px, 72px) rotate(72deg) scale(1);
+        }
+        60% {
+          transform: translate(83px, 122px) rotate(108deg) scale(1.2);
+        }
+        80% {
+          transform: translate(-40px, 72px) rotate(144deg) scale(1.1);
+        }
+        100% {
+          transform: translate(0) rotate(0deg) scale(1);
+        }
+      }
+      @keyframes animationFramesThree {
+        0% {
+          transform: translate(165px, -179px);
+        }
+        100% {
+          transform: translate(-346px, 617px);
+        }
+      }
+      @keyframes animationFramesTwo {
+        0% {
+          transform: translate(-300px, 151px) rotate(0deg);
+        }
+        100% {
+          transform: translate(251px, -200px) rotate(180deg);
+        }
+      }
+      @keyframes animationFramesOne {
+        0% {
+          transform: translate(0) rotate(0deg);
+        }
+        20% {
+          transform: translate(73px, -1px) rotate(36deg);
+        }
+        40% {
+          transform: translate(141px, 72px) rotate(72deg);
+        }
+        60% {
+          transform: translate(83px, 122px) rotate(108deg);
+        }
+        80% {
+          transform: translate(-40px, 72px) rotate(144deg);
+        }
+        100% {
+          transform: translate(0) rotate(0deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="text-container">
+      <div class="main-text" id="hitokoto_text">:D 获取中...</div>
+      <div class="main-info" id="hitokoto_info"></div>
+    </div>
+    <div class="background-fx">
+      <img src="./imgs/shape-01.svg" class="shape-01" />
+      <img src="./imgs/shape-02.svg" class="shape-02" />
+      <img src="./imgs/shape-03.svg" class="shape-03" />
+      <img src="./imgs/shape-04.svg" class="shape-04" />
+      <img src="./imgs/shape-05.svg" class="shape-05" />
+      <img src="./imgs/shape-06.svg" class="shape-06" />
+      <img src="./imgs/shape-07.svg" class="shape-07" />
+      <img src="./imgs/shape-08.svg" class="shape-08" />
+      <img src="./imgs/shape-09.svg" class="shape-09" />
+      <img src="./imgs/shape-10.svg" class="shape-10" />
+      <img src="./imgs/shape-11.svg" class="shape-11" />
+    </div>
+  </body>
   <script>
-    window.location.href = "/docs"
+    // 参数 c
+    // a	动画
+    // b	漫画
+    // c	游戏
+    // d	文学
+    // e	原创
+    // f	来自网络
+    // g	其他
+    // h	影视
+    // i	诗词
+    // j	网易云
+    // k	哲学
+    // l	抖机灵
+    // 其他	作为 动画 类型处理
+    const getData = () => {
+      fetch('https://v1.hitokoto.cn?min_length=6&c=i&c=l&c=h&c=k&c=k&c=d')
+        .then((response) => response.json())
+        .then((data) => {
+          const hitokoto = document.getElementById('hitokoto_text')
+          const hitokoto_info = document.getElementById('hitokoto_info')
+          hitokoto.innerText = data.hitokoto
+          hitokoto_info.innerText = data.from ? `--「${data.from}」` : ''
+        })
+        .catch(console.error)
+    }
+    getData()
+    setInterval(() => {
+      getData()
+    }, 5000)
   </script>
-</body>
 </html>
